@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.majl'
 version = '0.0.1-SNAPSHOT'
-description = 'Tracks Workout Progress in a web app written in Java SpringBoot (Gradle) and Angular.js'
+description = 'Backend that tracks Workout Progress written in Java SpringBoot (Gradle)'
 
 java {
 	toolchain {
