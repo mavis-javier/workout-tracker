@@ -2,9 +2,13 @@ package com.majl.workout_tracker.controllers;
 
 import com.majl.workout_tracker.entities.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -22,5 +26,13 @@ public class GreetingController {
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(defaultValue = "World") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
+    }
+
+    @RequestMapping("/resource")
+    public Map<String, Object> home() {
+        Map<String, Object> model = new HashMap<>();
+        model.put("id", UUID.randomUUID().toString()); // universally unique identifier
+        model.put("content", "Hello World");
+        return model;
     }
 }
